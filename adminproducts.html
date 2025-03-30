@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Products</title>
+    <link rel="stylesheet" href="adminproducts.css">
+  
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">E-commerce Admin</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="admin.html">Admin</a></li>
+                    <li><a href="logout.html">Log out</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-panel">
+        <a href="create.html"><button class="add-product-btn" >+ Yeni Məhsul</button></a>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Brend</th>
+                    <th>Model</th>
+                    <th>Kateqoriya</th>
+                    <th>Şəkil</th>
+                    <th>Qiymət</th>
+                    <th>Reytinq</th>
+                    <th>Əməliyyatlar</th>
+                </tr>
+            </thead>
+            <tbody id="product-table">
+
+            </tbody>
+        </table>
+    </main>
+<script src="./adminproducts.js"></script>
+</body>
+</html>

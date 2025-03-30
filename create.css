@@ -1,0 +1,146 @@
+/* Ümumi Stil */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+}
+
+/* Navbar */
+/* Navbar Ümumi Stil */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #d32f2f;
+    padding: 15px 50px;
+    color: white;
+    gap: 50px;
+}
+
+/* Sol tərəf - Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navbar Linkləri */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Sağ tərəf - Axtarış və Giriş düyməsi */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-box {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-btn {
+    background: white;
+    color: black;
+    padding: 8px 15px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    background: #f1f1f1;
+}
+
+/* Konteyner */
+.container {
+    width: 50%;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Başlıq */
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Stili */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input, textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Şəkil Önizləmə */
+.preview {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.preview img {
+    width: 150px;
+    height: auto;
+    display: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Düymələr */
+.save-btn, .reset-btn {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.save-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.reset-btn {
+    background: #f44336;
+    color: white;
+}

@@ -1,0 +1,125 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background: #d32f2f;
+    padding: 10px 0;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.shop-btn {
+    background: white;
+    color: #d32f2f;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.container{
+    width: 100vw;
+}
+.left{
+    width: 50vw;
+    float: left;
+}
+.signup-container {
+
+    width: 40%;
+    margin: 50px auto;
+    text-align: left;
+}
+
+.signup-container h2 {
+    text-align: center;
+}
+
+.signup-container form {
+
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-container label {
+    margin-top: 10px;
+}
+
+.signup-container input {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signup-btn {
+    background: #d32f2f;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.signup-container p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+footer {
+    background: #d32f2f;
+    color: white;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.footer-section {
+    display: inline-block;
+    width: 18%;
+    text-align: left;
+    margin: 0 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section img {
+    width: 100px;
+}
+.logout{
+    background-color: orangered;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+ 

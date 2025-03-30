@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+     <header>
+        <div class="container">
+            <h1 class="logo">E-commerce</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./index2.html">About</a></li>
+                    <li><a href="./sign.html">Sign Up</a></li>
+                  
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <input type="text" placeholder="Search...">
+                <button class="search-btn">🔍</button>
+                <button class="login-btn">Log in</button>
+            </div>
+            
+        </div>
+    </header>
+    <section class="cart">
+        <h2>Cart</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+          
+            </tbody>
+        </table>
+
+     
+    </section>
+
+    <div class="cart-total">
+        <h3>Cart total</h3>
+        <p>Subtotal: <span id="subtotal-price">0$</span></p>
+        <p>Shipping: <span>Free</span></p>
+        <p>Total: <span id="total-price">0$</span></p>
+        <button id="checkout">Proceed to Checkout</button>
+    </div>
+
+</body>
+</html>

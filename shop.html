@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">E-commerce</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./index2.html">About</a></li>
+                    <li><a href="./sign.html">Sign Up</a></li>
+                  
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <input type="text" placeholder="Search...">
+                <button class="search-btn">🔍</button>
+                <button class="login-btn">Log in</button>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+        </div>
+    </header>
+      <div class="sidebar">
+        
+        <div class="search-box">
+            <input type="text" placeholder="Search products...">
+            <button>🔍</button>
+        </div>
+
+        <div class="category">
+            <h3>Category</h3>
+            <ul>
+                <li><a href="#"> Clothing</a></li>
+                <li><a href="#"> Footwear</a></li>
+                <li><a href="#"> Accessories</a></li>
+                <li><a href="#"> Tablets</a></li>
+            </ul>
+        </div>
+
+        
+    </div>
+
+    <div class="product-filter">
+        <button class="all-products-btn">📦 All Products</button>
+        <select class="sort-dropdown">
+            <option value="default">Sort by</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Best Rating</option>
+            <option value="newest">Newest</option>
+        </select>
+    </div>
+
+
+    <footer>
+        <div class="footer-section">
+            <h3>Exclusive</h3>
+            <p>Get 10% off your first order</p>
+            <input type="email" placeholder="Enter your email">
+        </div>
+        <div class="footer-section">
+            <h3>Support</h3>
+            <p>111 Bijoy sarani, Dhaka, Bangladesh.</p>
+            <p>exclusive@gmail.com</p>
+            <p>+88015-88888-9999</p>
+        </div>
+        <div class="footer-section">
+            <h3>Account</h3>
+            <ul>
+                <li>My Account</li>
+                <li>Login / Register</li>
+                <li>Cart</li>
+                <li>Wishlist</li>
+                <li>Shop</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Link</h3>
+            <ul>
+                <li>Privacy Policy</li>
+                <li>Terms of Use</li>
+                <li>FAQ</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Download App</h3>
+            <p>Save $3 with App New User Only</p>
+            <img src="./Ekran görüntüsü 2025-03-30 145219.png" alt="QR Code">
+        </div>
+    </footer>
+<script src="./shop.js"></script>
+</body>
+</html>

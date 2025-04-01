@@ -17,49 +17,52 @@
                     <li><a href="./contact.html">Contact</a></li>
                     <li><a href="./index2.html">About</a></li>
                     <li><a href="./sign.html">Sign Up</a></li>
-                  
+                    <li><a href="./shop.html" class="shop-btn">Shop</a></li>
                 </ul>
             </nav>
             <div class="user-actions">
-                <input type="text" placeholder="Search...">
-                <button class="search-btn">🔍</button>
+                <input type="text" id="search-box" placeholder="Search...">
+                <button id="search-btn">🔍</button>
                 <button class="login-btn">Log in</button>
+                <button id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
             </div>
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
         </div>
     </header>
-      <div class="sidebar">
-        
-        <div class="search-box">
-            <input type="text" placeholder="Search products...">
-            <button>🔍</button>
-        </div>
 
-        <div class="category">
-            <h3>Category</h3>
-            <ul>
-                <li><a href="#"> Clothing</a></li>
-                <li><a href="#"> Footwear</a></li>
-                <li><a href="#"> Accessories</a></li>
-                <li><a href="#"> Tablets</a></li>
+    <main>
+        <aside>
+            <h2>Category</h2>
+            <ul id="category-list">
+                <li data-category="All">All products</li>
             </ul>
-        </div>
+            
+            <h2>Rate</h2>
+            <div id="rating-filter">
+                <button class="bir" data-rating="5">★★★★★</button>
+                <br>
+                <br>
+                <button class="bir" data-rating="4">★★★★☆</button>
+                <br>
+                <br>
+                <button class="bir" data-rating="3">★★★☆☆</button>
+                <br>
+                <br>
+                <button class="bir" data-rating="2">★★☆☆☆</button>
+                <br>
+                <br>
+                <button class="bir" data-rating="1">★☆☆☆☆</button>
+            </div>
+        </aside>
 
-        
-    </div>
-
-    <div class="product-filter">
-        <button class="all-products-btn">📦 All Products</button>
-        <select class="sort-dropdown">
-            <option value="default">Sort by</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-            <option value="rating">Best Rating</option>
-            <option value="newest">Newest</option>
-        </select>
-    </div>
-
-
+        <section id="products-container">
+           
+        </section>
+    </main>
+<br>
+<br>
+<br>
+<br>
+<br>
     <footer>
         <div class="footer-section">
             <h3>Exclusive</h3>
@@ -91,12 +94,8 @@
                 <li>Contact</li>
             </ul>
         </div>
-        <div class="footer-section">
-            <h3>Download App</h3>
-            <p>Save $3 with App New User Only</p>
-            <img src="./Ekran görüntüsü 2025-03-30 145219.png" alt="QR Code">
-        </div>
     </footer>
-<script src="./shop.js"></script>
+    
+    <script src="shop.js"></script>
 </body>
 </html>

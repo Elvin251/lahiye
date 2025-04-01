@@ -134,9 +134,10 @@ img {
     border: 1px solid #ddd;
     padding: 10px;
     width: 20vw;
-    float: right;
+margin-left: 1100px;
     margin-right: 100px;
     margin-top: 200px;
+    margin-bottom: 20px;
 }
 
 #checkout {
@@ -149,4 +150,36 @@ img {
 
 #checkout:hover {
     background: darkgreen;
+}
+footer {
+    background: #d32f2f;
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+input[type="email"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+.logout{
+    background-color: orangered;
+    border-radius: 5px;
+    padding: 10px;
 }

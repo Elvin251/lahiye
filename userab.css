@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: orangered;
+    padding: 15px 30px;
+}
+
+.logo {
+    color: white;
+    font-size: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links input {
+    padding: 5px;
+}
+
+.nav-links button {
+    background-color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.user-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-container h2 {
+    color: orangered;
+}
+
+.user-container p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.user-container strong {
+    color: #333;
+}
+footer {
+    margin-top: 60px ;
+    background-color: orangered;
+    color: white;
+    padding: 20px;
+    margin-top: 50px;
+    display: flex;
+}
+
+.footer-container {
+    display: flex;
+    margin-top: 60px ;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    width: 17%;
+    padding: 10px;
+}
+
+.footer-section h3 {
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section input {
+    padding: 5px;
+    width: 80%;
+}
+
+.app-links img {
+    width: 100px;
+    margin-right: 5px;
+}
+
+.social-icons span {
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid white;
+    margin-top: 20px;
+}
+.a{
+    width: 170px;
+    position: absolute;
+    background-color: orangered;
+    border: none;
+    left:370px;
+    top: 120px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}

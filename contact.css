@@ -152,4 +152,8 @@ input[type="email"] {
     border-radius: 5px;
     width: 100%;
 }
-
+.logout{
+    background-color: orangered;
+    border-radius: 5px;
+    padding: 10px;
+}

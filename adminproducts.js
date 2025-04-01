@@ -1,6 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const productTable = document.getElementById("product-table"); // Məhsul siyahısını götür
-    const productList = JSON.parse(localStorage.getItem("products")) ;
+    const productTable = document.getElementById("product-table");
+
+    let user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+        alert("İstifadəçi daxil olmayıb!");
+        return;
+    }
+
+    let userProductsKey = `products_${user.username}`;
+    let productList = JSON.parse(localStorage.getItem(userProductsKey)) || [];
 
     function renderProducts() {
         productTable.innerHTML = ""; 
@@ -25,19 +33,30 @@ document.addEventListener("DOMContentLoaded", function () {
             productTable.appendChild(row);
         });
 
-        // Sil düyməsinə klik üçün event əlavə et
         document.querySelectorAll(".delete-btn").forEach((button) => {
             button.addEventListener("click", function () {
                 const productId = parseInt(this.dataset.id);
                 deleteProduct(productId);
             });
         });
+
+        document.querySelectorAll(".edit-btn").forEach((button) => {
+            button.addEventListener("click", function () {
+                const productId = parseInt(this.dataset.id);
+                localStorage.setItem("editProductId", productId); // ID-ni yadda saxla
+                editProduct(productId);
+            });
+        });
     }
 
     function deleteProduct(id) {
-        const updatedList = productList.filter((product) => product.id !== id);
-        localStorage.setItem("products", JSON.stringify(updatedList));
-        location.reload(); // Səhifəni yenilə
+        productList = productList.filter((product) => product.id !== id);
+        localStorage.setItem(userProductsKey, JSON.stringify(productList));
+        renderProducts();
+    }
+
+    function editProduct(productId) {
+        window.location.href = `producta.html?id=${productId}`;
     }
 
     renderProducts();

@@ -119,3 +119,37 @@ td img {
 .delete-btn:hover {
     background-color: #c82333;
 }
+footer {
+    background: #d32f2f;
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+  margin-top: 250px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+input[type="email"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+.logout{
+    background-color: orangered;
+    border-radius: 5px;
+    padding: 10px;
+}
+

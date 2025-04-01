@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo"> <b>E-commerce</b></div>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./index2.html">About</a></li>
+                <li><a href="./sign.html">Sign Up</a></li>
+                <li><a href="./shop.html" class="shop-btn">Shop</a></li>
+               
+                <li><button id="log-in">Log in</button></li>
+                <li><button id="log-out" style="display:none;" onclick="out()">Log out</button></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="checkout-container">
+        <div class="billing-details">
+            <h2>Billing Details</h2>
+            <form id="checkout-form">
+                <label>First Name</label>
+                <input class="bir" type="text" required>
+                
+                <label>Last Name</label>
+                <input class="bir"  type="text" required>
+                
+                <label>State</label>
+                <select required>
+                    <option>Choose...</option>
+                    <option>State 1</option>
+                    <option>State 2</option>
+                </select>
+                
+                <label>City</label>
+                <input class="bir"  type="text" required>
+
+                <label>Address</label>
+                <input class="bir"  type="text" required>
+
+                <label>Zip</label>
+                <input class="bir"  type="text" required>
+
+                <label>Tel</label>
+                <input class="bir"  type="text" required>
+
+                <label>Email</label>
+                <input class="bir"  type="email" required>
+<div style="display: flex; margin-top: 50px;"> <p>Agree to terms and conditions </p> <input class="bir"  type="checkbox" required> </div>
+   
+            </form>
+        </div>
+
+        <div class="payment-details">
+            <h2>Payment</h2>
+            <div class="cards">
+                <img src="./Ekran görüntüsü 2025-04-01 223507.png" alt="examples card">
+                
+            </div>
+            <label>Card Number</label>
+            <input class="bir"  type="text" required>
+            
+            <div class="card-info">
+                <input class="bir"  type="password" placeholder="MM" required>
+                <input class="bir"  type="password" placeholder="YY" required>
+                <input class="bir"  type="password" placeholder="CVC" required>
+            </div>
+
+            <div class="summary">
+                <p>Subtotal: <span id="subtotal">0$</span></p>
+                <p>Shipping: <span>FREE</span></p>
+                <p>Total: <span id="total-price">0$</span></p>
+                <input type="submit" id="place-order">
+            </div>
+        </div>
+    </section>
+
+    <script src="checkout.js"></script>
+</body>
+</html>
+

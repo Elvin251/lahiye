@@ -3,11 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!product) {
         alert("No product found!");
-        window.location.href = "index.html"; // Anasayfaya yönlendirme
+        window.location.href = "index.html"; 
         return;
     }
 
-    // Sayfadaki elementleri seç
     document.querySelector(".product-image img").src = product.image;
     document.querySelector(".product-image img").alt = product.model;
     document.querySelector(".product-info h2").innerText = `${product.brand} ${product.model}`;
@@ -15,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".price").innerText = `$${product.price}`;
     document.querySelector(".description").innerText = product.description;
 
-    // Sepete ekleme butonu
     document.querySelector(".add-to-cart").addEventListener("click", function () {
         let user = JSON.parse(localStorage.getItem("user"));
         if (!user) {

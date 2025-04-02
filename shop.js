@@ -1,9 +1,12 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     const productsContainer = document.getElementById("products-container");
     const cartCount = document.getElementById("cart-count");
     const categoryList = document.getElementById("category-list");
-    const searchInput = document.getElementById("search-box");
+    const searchInputs = document.querySelectorAll(".search-box");
     const cartBtn = document.getElementById("cart-btn");
+    const sortOptions = document.getElementById("sort-options");
+    const refreshButton = document.getElementById("refreshButton");
 
     let user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
@@ -33,20 +36,28 @@ document.addEventListener("DOMContentLoaded", function () {
             li.innerText = category;
             li.dataset.category = category;
             li.addEventListener("click", function () {
-                renderProducts(category);
+                renderProducts(category, 0, "", sortOptions.value);
             });
             categoryList.appendChild(li);
         });
     }
 
-    function renderProducts(filterCategory = "All", filterRating = 0, searchQuery = "") {
+    function renderProducts(filterCategory = "All", filterRating = 0, searchQuery = "", sortBy = "default") {
         productsContainer.innerHTML = "";
 
         let filteredProducts = products.filter(product => {
             return (filterCategory === "All" || product.category === filterCategory) &&
-                   (filterRating === 0 || product.rating >= filterRating) &&
+                   (filterRating === 0 || product.rating == filterRating) &&
                    (searchQuery === "" || product.model.toLowerCase().includes(searchQuery.toLowerCase()));
         });
+
+        if (sortBy === "price-low") {
+            filteredProducts.sort((a, b) => a.price - b.price);
+        } else if (sortBy === "price-high") {
+            filteredProducts.sort((a, b) => b.price - a.price);
+        } else if (sortBy === "rating-high") {
+            filteredProducts.sort((a, b) => b.rating - a.rating);
+        }
 
         if (filteredProducts.length === 0) {
             productsContainer.innerHTML = "<p>No products found.</p>";
@@ -57,14 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const productCard = document.createElement("div");
             productCard.classList.add("product-card");
             productCard.innerHTML = `
-            <img class="img" id="${product.id}" src="${product.image}" alt="${product.model}">
-            <h3>${product.brand} ${product.model}</h3>
-            <p>${product.price} $</p>
-            <p>⭐ ${product.rating}/5</p>
-            <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
-        `;
-        productCard.style.height="400px"
-        
+                <img class="img" id="${product.id}" src="${product.image}" alt="${product.model}">
+                <h3>${product.brand} ${product.model}</h3>
+                <p>${product.price} $</p>
+                <p>⭐ ${product.rating}/5</p>
+                <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
+            `;
+            productCard.style.height = "400px";
 
             productCard.querySelector(".add-to-cart").addEventListener("click", function () {
                 addToCart(product);
@@ -83,29 +93,35 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("#rating-filter button").forEach(ratingBtn => {
         ratingBtn.addEventListener("click", function () {
             let rating = parseInt(this.dataset.rating);
-            renderProducts("All", rating);
+            renderProducts("All", rating, searchInputs[0]?.value || "", sortOptions.value);
         });
     });
 
-    searchInput.addEventListener("input", function () {
-        renderProducts("All", 0, this.value);
+    searchInputs.forEach(input => {
+        input.addEventListener("input", function () {
+            renderProducts("All", 0, this.value, sortOptions.value);
+        });
+    });
+
+    sortOptions.addEventListener("change", function () {
+        renderProducts("All", 0, searchInputs[0]?.value || "", this.value);
     });
 
     cartBtn.addEventListener("click", function () {
-        window.location.href = "cart.html";   
+        window.location.href = "cart.html";
     });
 
     categoryList.addEventListener("click", function (event) {
         if (event.target.dataset.category) {
-            renderProducts(event.target.dataset.category);
+            renderProducts(event.target.dataset.category, 0, searchInputs[0]?.value || "", sortOptions.value);
         }
     });
+
     document.addEventListener("click", function (event) {
         if (event.target.classList.contains("img")) {
             let id = event.target.id;
-            let products = JSON.parse(localStorage.getItem("products")) || [];
             let mehsul = products.find(product => product.id == id);
-        
+
             if (mehsul) {
                 let product = {
                     brand: mehsul.brand,
@@ -116,16 +132,19 @@ document.addEventListener("DOMContentLoaded", function () {
                     rating: mehsul.rating,
                     image: mehsul.image
                 };
-        
                 localStorage.setItem("product-about", JSON.stringify(product));
-                window.location.href = "product.html"; 
+                window.location.href = "product.html";
             }
         }
     });
-    
-    
- updateCartCount();
+
+    if (refreshButton) {
+        refreshButton.addEventListener("click", function() {
+            location.reload();
+        });
+    }
+
+    updateCartCount();
     updateCategoryList();
     renderProducts();
 });
-

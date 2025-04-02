@@ -21,19 +21,30 @@
                 </ul>
             </nav>
             <div class="user-actions">
-                <input type="text" id="search-box" placeholder="Search...">
+                <input type="text" class="search-box" placeholder="Search...">
                 <button id="search-btn">🔍</button>
                 <button class="login-btn">Log in</button>
                 <button id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
             </div>
         </div>
     </header>
-
+    <h1 >Shop</h1>
+    <select id="sort-options">
+        <option value="default">Sort by</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="rating-high">Rating: High to Low</option>
+    </select>
+    
+    <button id="refreshButton">All</button>
+    <input type="text" class="search-box" id="input" placeholder="Search...">
     <main>
+      
+        
         <aside>
             <h2>Category</h2>
             <ul id="category-list">
-                <li data-category="All">All products</li>
+                <li data-category="All"></li>
             </ul>
             
             <h2>Rate</h2>

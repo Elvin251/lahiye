@@ -29,13 +29,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let inputs = document.querySelectorAll("input[required]"); 
         let allValid = true;
+        if (!checkoutForm.checkValidity()) {
 
+            checkoutForm.reportValidity();
+            return;
+        }
+        
         inputs.forEach(input => {
             if (!input.value.trim()) {
                 allValid = false;
-                input.style.border = "2px solid red"; // Səhv olan sahəni vurğula
+                input.style.border = "2px solid red"; 
             } else {
-                input.style.border = ""; // Düzgün daxil edilənləri normallaşdır
+                input.style.border = ""; 
             }
         });
 

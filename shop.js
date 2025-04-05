@@ -85,10 +85,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function addToCart(product) {
-        cart.push(product);
-        localStorage.setItem(cartKey, JSON.stringify(cart));
+       
+      
+        let user = JSON.parse(localStorage.getItem("user"));
+        if (!user) return;
+    
+        let cartKey = `cart_${user.username}`;
+        let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+        let existingProduct = cart.find(item => item.id === product.id);
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+           
+        } else {
+
+            product.quantity = 1;
+            cart.push(product);
+            location.reload();
+       
+        }
         updateCartCount();
+        localStorage.setItem(cartKey, JSON.stringify(cart));
+       
     }
+    
 
     document.querySelectorAll("#rating-filter button").forEach(ratingBtn => {
         ratingBtn.addEventListener("click", function () {

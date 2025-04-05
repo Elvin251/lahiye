@@ -112,17 +112,17 @@ ul{
     align-items: center;
     justify-content: space-between;
     background-color: #f5d28f;
-    padding: 50px;
+
 }
 
 .promo-left img {
-    width: 400px;
-    height:400px;
+    width: 900px;
+    height:500px;
     border-radius: 10px;
 }
 
 .promo-right {
-    max-width: 400px;
+    width: 500px;
 }
 
 .promo-right h2 {

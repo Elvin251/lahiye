@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td><button class="remove-btn" data-index="${index}">X</button></td>
             `;
             cartContainer.appendChild(row);
+
         });
 
         subtotalElement.textContent = `${total.toFixed(2)}$`;
@@ -77,3 +78,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     renderCart();
 });
+

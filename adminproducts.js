@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let userProductsKey = `products_${user.username}`;
     let productList = JSON.parse(localStorage.getItem(userProductsKey)) || [];
+    let products = JSON.parse(localStorage.getItem("products")) ;
 
     function renderProducts() {
         productTable.innerHTML = ""; 
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".edit-btn").forEach((button) => {
             button.addEventListener("click", function () {
                 const productId = parseInt(this.dataset.id);
-                localStorage.setItem("editProductId", productId); // ID-ni yadda saxla
+                localStorage.setItem("editProductId", productId);
                 editProduct(productId);
             });
         });
@@ -51,7 +52,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function deleteProduct(id) {
         productList = productList.filter((product) => product.id !== id);
+        products = productList.filter((product) => product.id !== id);
         localStorage.setItem(userProductsKey, JSON.stringify(productList));
+        localStorage.setItem("products", JSON.stringify(products));
         renderProducts();
     }
 

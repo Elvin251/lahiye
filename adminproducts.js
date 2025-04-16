@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
         alert("İstifadəçi daxil olmayıb!");
+        window.location.href = "login.html";
         return;
     }
 

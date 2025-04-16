@@ -23,29 +23,33 @@ document.addEventListener("DOMContentLoaded", function () {
     let total = cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
     subtotalElement.textContent = `${total.toFixed(2)}$`;
     totalElement.textContent = `${total.toFixed(2)}$`;
+    const inputs = document.querySelectorAll(".checkout-container input[required]:not([type='submit'])");
 
+    inputs.forEach(input => {
+        input.addEventListener("input", function () {
+            if (input.checkValidity()) {
+                input.style.border = "2px solid green";
+            } else {
+                input.style.border = "2px solid red";
+            }
+        });
+    });
     placeOrderButton.addEventListener("click", function (event) {
         event.preventDefault();
 
-        let inputs = document.querySelectorAll("input[required]"); 
         let allValid = true;
-        if (!checkoutForm.checkValidity()) {
 
-            checkoutForm.reportValidity();
-            return;
-        }
-        
         inputs.forEach(input => {
-            if (!input.value.trim()) {
+            if (!input.checkValidity()) {
+                input.style.border = "2px solid red";
                 allValid = false;
-                input.style.border = "2px solid red"; 
             } else {
-                input.style.border = ""; 
+                input.style.border = "2px solid green";
             }
         });
 
         if (!allValid) {
-            alert("Please fill in all required fields.");
+            alert("Please fill in all required fields correctly.");
             return;
         }
 
@@ -54,3 +58,5 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "shop.html";
     });
 });
+
+

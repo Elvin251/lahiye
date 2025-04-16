@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     const productForm = document.getElementById("product-form");
     const previewImage = document.getElementById("preview-image");
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let userProducts = JSON.parse(localStorage.getItem(userProductsKey)) || [];
     let allProducts = JSON.parse(localStorage.getItem(allProductsKey)) || [];
-
     imageUrlInput.addEventListener("input", () => {
         const url = imageUrlInput.value;
         if (url) {
@@ -26,11 +24,40 @@ document.addEventListener("DOMContentLoaded", function () {
             previewImage.style.display = "none";
         }
     });
+    const inputs = productForm.querySelectorAll("input[required], textarea[required], select[required]");
+    inputs.forEach(input => {
+        input.addEventListener("input", () => {
+            updateInputBorder(input);
+        });
+        updateInputBorder(input);
+    });
+
+    function updateInputBorder(input) {
+        if (input.checkValidity()) {
+            input.style.border = "2px solid green";
+        } else {
+            input.style.border = "2px solid red";
+        }
+    }
     productForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
+        let allValid = true;
+
+        inputs.forEach(input => {
+            updateInputBorder(input);
+            if (!input.checkValidity()) {
+                allValid = false;
+            }
+        });
+
+        if (!allValid) {
+            alert("Zəhmət olmasa, bütün sahələri düzgün doldurun.");
+            return;
+        }
+
         const newProduct = {
-            id: allProducts.length + 1, 
+            id: allProducts.length + 1,
             brand: document.getElementById("brand").value,
             model: document.getElementById("model").value,
             category: document.getElementById("category").value,
@@ -38,19 +65,10 @@ document.addEventListener("DOMContentLoaded", function () {
             price: document.getElementById("price").value,
             rating: document.getElementById("rating").value,
             image: document.getElementById("image-url").value,
-            owner: user.username 
+            owner: user.username
         };
-        const newProduct1 = {
-            id: userProducts.length + 1, 
-            brand: document.getElementById("brand").value,
-            model: document.getElementById("model").value,
-            category: document.getElementById("category").value,
-            description: document.getElementById("description").value,
-            price: document.getElementById("price").value,
-            rating: document.getElementById("rating").value,
-            image: document.getElementById("image-url").value,
-            owner: user.username 
-        };
+        const newProduct1 = { ...newProduct, id: userProducts.length + 1 };
+
         userProducts.push(newProduct1);
         localStorage.setItem(userProductsKey, JSON.stringify(userProducts));
 
@@ -58,8 +76,10 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem(allProductsKey, JSON.stringify(allProducts));
 
         alert("Məhsul uğurla əlavə olundu!");
-
         productForm.reset();
         previewImage.style.display = "none";
+        inputs.forEach(input => updateInputBorder(input));
     });
 });
+
+

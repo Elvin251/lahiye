@@ -28,10 +28,10 @@ form.addEventListener("submit", (event) => {
         }
     });
 
-    if (!allValid) {
-        alert("Zəhmət olmasa bütün xanaları düzgün doldurun!");
-        return;
-    }
+    // if (!allValid) {
+    //     alert("Zəhmət olmasa bütün xanaları düzgün doldurun!");
+    //     return;
+    // }
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
     let findusers = users.find(user =>

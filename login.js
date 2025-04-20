@@ -19,19 +19,18 @@ inputs.forEach((input, index) => {
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    let allValid = true;
+    let allValid = false;
     inputs.forEach((input, index) => {
         if (index === 0) return;
         validateInput(input);
         if (!input.checkValidity() || input.value.trim() === "") {
-            allValid = false;
+            allValid = true;
         }
     });
 
-    // if (!allValid) {
-    //     alert("Zəhmət olmasa bütün xanaları düzgün doldurun!");
-    //     return;
-    // }
+    if (!allValid) {
+        return;
+    }
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
     let findusers = users.find(user =>

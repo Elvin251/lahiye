@@ -1,6 +1,6 @@
 let users = JSON.parse(localStorage.getItem("users")) || [];
 let form = document.querySelector("form");
-let inputs = document.querySelectorAll("input");
+let inputs = document.querySelectorAll(".bir");
 
 function validateInput(input) {
     if (input.checkValidity() && input.value.trim() !== "") {

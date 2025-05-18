@@ -8,8 +8,9 @@ function validateInput(input) {
         input.style.border = "2px solid red";
     }
 }
+
 inputs.forEach((input, index) => {
-    if (index === 0) return;
+    if (index === 0) return; 
     input.addEventListener("input", () => {
         validateInput(input);
     });
@@ -19,27 +20,30 @@ inputs.forEach((input, index) => {
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    let allValid = false;
+    let allValid = true;  
+
     inputs.forEach((input, index) => {
         if (index === 0) return;
         validateInput(input);
         if (!input.checkValidity() || input.value.trim() === "") {
-            allValid = true;
+            allValid = false; 
         }
     });
 
     if (!allValid) {
+      
         return;
     }
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
-    let findusers = users.find(user =>
+
+    let foundUser = users.find(user =>
         user.username === inputs[1].value.trim() &&
         user.password === inputs[2].value.trim()
     );
 
-    if (findusers) {
-        localStorage.setItem("user", JSON.stringify(findusers));
+    if (foundUser) {
+        localStorage.setItem("user", JSON.stringify(foundUser));
         alert("Giriş uğurludur 😊");
         window.location.href = "index.html";
     } else {
@@ -48,6 +52,7 @@ form.addEventListener("submit", (event) => {
         inputs[2].style.border = "2px solid red";
     }
 
+    // Dəyərləri təmizlə və yenidən yoxla
     inputs[1].value = "";
     inputs[2].value = "";
     inputs.forEach((input, index) => {
